@@ -1,6 +1,6 @@
 # Project Configuration
 model_settings:
-  base_llm_path: "models/gemma-7b" # Path to your downloaded base LLM (e.g., models/gemma-7b)
+  base_llm_path: "src/models" # Path to your downloaded base LLM (e.g., models/gemma-7b)
   fine_tuned_model_output_dir: "models/fine_tuned_llm"
   embedding_model_name: "all-MiniLM-L6-v2" # Sentence Transformer model
 

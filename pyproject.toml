@@ -12,6 +12,8 @@ dependencies = [
     "rich",         # For better CLI output
     "requests",
     "huggingface-hub", # For interacting with the Hub
+    "llama-cpp-python", # For local GGUF model inference
+    "PyYAML",       # For loading config.yaml
 ]
 
 [project.optional-dependencies]
@@ -21,5 +23,8 @@ dev = [
 ]
 
 # This section defines the command-line script
+[tool.setuptools.package-data]
+quaint = ["config.yaml"]
+
 [project.scripts]
 quaint = "quaint.main:app"
