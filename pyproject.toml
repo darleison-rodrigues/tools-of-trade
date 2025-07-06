@@ -1,0 +1,25 @@
+[project]
+name = "quaint"
+version = "0.1.0"
+description = "A command-line toolkit for building, fine-tuning, and deploying specialized language models."
+authors = [{ name = "Your Name", email = "your@email.com" }]
+readme = "README.md"
+requires-python = ">=3.9"
+
+# Define all project dependencies here
+dependencies = [
+    "typer[all]",
+    "rich",         # For better CLI output
+    "requests",
+    "huggingface-hub", # For interacting with the Hub
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov", # For checking test coverage
+]
+
+# This section defines the command-line script
+[project.scripts]
+quaint = "quaint.main:app"
