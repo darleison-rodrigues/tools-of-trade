@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+env/
+venv/
+*.env
+.env
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# IDEs
+.idea/
+.vscode/
+
+# Data
+data/processed/
+models/fine_tuned_gemma/
+models/embedding_models/
+vector_db/
+
+# Logs
+*.log
+logs/

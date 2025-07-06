@@ -1,0 +1,30 @@
+# Project Configuration
+model_settings:
+  base_llm_path: "models/gemma-7b" # Path to your downloaded base LLM (e.g., models/gemma-7b)
+  fine_tuned_model_output_dir: "models/fine_tuned_llm"
+  embedding_model_name: "all-MiniLM-L6-v2" # Sentence Transformer model
+
+data_settings:
+  raw_text_dir: "data/raw/texts"
+  raw_pdf_dir: "data/raw/pdfs"
+  processed_finetuning_data: "data/processed/fine_tuning_data.jsonl"
+  processed_chunks_for_embedding: "data/processed/chunks_for_embedding.jsonl"
+  rag_chunk_size: 500
+  rag_chunk_overlap: 50
+
+vector_db_settings:
+  chromadb_path: "vector_db/chromadb_data"
+  collection_name: "gemma_knowledge_base"
+
+finetuning_hyperparameters:
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  learning_rate: 2e-4
+  num_train_epochs: 3
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 4
+  max_seq_length: 2048 # Adjust based on model and VRAM
+
+agent_settings:
+  max_agent_iterations: 7 # Increased for more complex tasks
