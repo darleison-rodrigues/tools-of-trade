@@ -1,30 +1,19 @@
-# Project Configuration
+# Project Configuration for Quaint-App
+# This configuration is designed for a single Docker container deployment on Jetson.
+# Paths are relative to the container's /app directory.
+
 model_settings:
-  base_llm_path: "src/models" # Path to your downloaded base LLM (e.g., models/gemma-7b)
-  fine_tuned_model_output_dir: "models/fine_tuned_llm"
-  embedding_model_name: "all-MiniLM-L6-v2" # Sentence Transformer model
+  local_llm_path: "/app/models" # Path to specialized local LLMs (e.g., for perception)
+  embedding_model_name: "all-MiniLM-L6-v2" # Sentence Transformer model for embeddings
+  gemini_api_key: "YOUR_GEMINI_API_KEY" # Placeholder: Use environment variable in production
 
 data_settings:
-  raw_text_dir: "data/raw/texts"
-  raw_pdf_dir: "data/raw/pdfs"
-  processed_finetuning_data: "data/processed/fine_tuning_data.jsonl"
-  processed_chunks_for_embedding: "data/processed/chunks_for_embedding.jsonl"
+  raw_text_dir: "/app/data/raw/texts" # Path to raw text data within the container
+  raw_pdf_dir: "/app/data/raw/pdfs"   # Path to raw PDF data within the container
   rag_chunk_size: 500
   rag_chunk_overlap: 50
+  rag_top_k: 5 # Number of top results to retrieve from CortexDB for RAG
 
 vector_db_settings:
-  chromadb_path: "vector_db/chromadb_data"
-  collection_name: "gemma_knowledge_base"
-
-finetuning_hyperparameters:
-  lora_r: 16
-  lora_alpha: 32
-  lora_dropout: 0.05
-  learning_rate: 2e-4
-  num_train_epochs: 3
-  per_device_train_batch_size: 2
-  gradient_accumulation_steps: 4
-  max_seq_length: 2048 # Adjust based on model and VRAM
-
-agent_settings:
-  max_agent_iterations: 7 # Increased for more complex tasks
+  chromadb_path: "/app/vector_db/cortexdb_data" # Path for CortexDB persistence within the container
+  collection_name: "enterprise_knowledge_base"

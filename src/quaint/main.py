@@ -1,3 +1,4 @@
+
 import typer
 from . import data
 from . import model
@@ -10,7 +11,7 @@ app.add_typer(model.app, name="model")
 @app.command()
 def hello():
     """A simple command to verify the CLI is working."""
-    print("Hello from quaint!")
+    print("Hello from Quaint-App!")
 
 if __name__ == "__main__":
     app()

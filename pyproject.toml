@@ -1,30 +1,32 @@
 [project]
-name = "quaint"
+name = "quaint-app"
 version = "0.1.0"
-description = "A command-line toolkit for building, fine-tuning, and deploying specialized language models."
+description = "An enterprise-grade Edge AI platform for private RAG and agentic services, optimized for Jetson."
 authors = [{ name = "Your Name", email = "your@email.com" }]
 readme = "README.md"
 requires-python = ">=3.9"
 
-# Define all project dependencies here
 dependencies = [
-    "typer[all]",
-    "rich",         # For better CLI output
-    "requests",
-    "huggingface-hub", # For interacting with the Hub
-    "llama-cpp-python", # For local GGUF model inference
-    "PyYAML",       # For loading config.yaml
+    "typer[all]",           # For building the CLI
+    "rich",                 # For rich terminal output
+    "PyYAML",               # For config management
+    "chromadb",             # For local RAG (CortexDB)
+    "sentence-transformers",# For embeddings
+    "google-generativeai",  # For Gemini API integration
+    "python-dotenv",        # For managing environment variables
+    "PyMuPDF",              # For PDF processing in data ingestion
+    "pdfplumber",           # For PDF processing in data ingestion
+    "llama-cpp-python",     # For specialized local models (e.g., perception)
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest",
-    "pytest-cov", # For checking test coverage
+    "pytest-cov",
 ]
 
-# This section defines the command-line script
 [tool.setuptools.package-data]
-quaint = ["config.yaml"]
+"quaint-app" = ["config.yaml"] # Ensure config.yaml is included in the package
 
 [project.scripts]
 quaint = "quaint.main:app"
